@@ -1,42 +1,89 @@
-# NodeJs, Express, EJS & MongoDB Blog - CRUD
+## Portfolio Platform using Node.js
 
-![alt text](/readme-image.jpg?raw=true)
+This project is a portfolio platform built using Node.js, Express, EJS, and MongoDB. It provides functionalities for user registration, login, authorization, API integration, and email sending using Nodemailer.
 
-## You need:
-- NodeJs
-- Database (MongoDB) Free Cluster
+### Features
 
-## Create .env file
-Create a .env file to store your credentials. Example below:
+* **User Management:**
+    * User registration with username, password, and optional information (First Name, Last Name, Age, Country, Gender).
+    * Secure user login with password hashing using bcrypt.
+    * User roles (admin and regular user) for authorization purposes.
+* **Portfolio Management:**
+    * Admin-only functionality to add, edit, and delete portfolio items.
+    * Each item includes three images, two names (for different languages), two descriptions (for different languages), and timestamps for creation, update, and deletion.
+    * On the main page, items are displayed in well-designed blocks with carousels for images and details.
+* **API Integration:**
+    * Three different pages utilize APIs to display visually appealing charts or graphs, providing insights and user engagement.
+* **Email Notifications:**
+    * Welcome email sent after successful user registration.
+    * (Optional) Additional notifications for specific actions within the platform.
 
-```
-MONGODB_URI=mongodb+srv://<username>:<password>@clusterName.xxxxxxx.mongodb.net/blog
-JWT_SECRET=MySecretBlog
-```
+### Setup Instructions
 
-## Installation
-To install and run this project - install dependencies using npm and then start your server:
+1. **Prerequisites:**
+    * Node.js and npm installed on your system.
+    * MongoDB database instance running locally or remotely with appropriate IP access granted.
+2. **Clone the repository:**
 
-```
-$ npm install
-$ npm run dev
-```
+   ```bash
+   git clone <repository_url>
+   ```
 
-## Design Files
-The Blog layout is available in a Figma(.fig) file located under the "Design Files".
+3. **Install dependencies:**
 
-[View Live Figma Prototype](https://www.figma.com/proto/Vpc5J1ajnwDTT96q0IUFDJ/NodeJs-Blog?page-id=0%3A1&type=design&node-id=48-119&viewport=-194%2C377%2C0.17&scaling=min-zoom&starting-point-node-id=48%3A119)
+   ```bash
+   cd portfolio-platform
+   npm install
+   ```
 
+4. **Environment variables:**
 
-### YouTube Channels
+   Create a `.env` file in the project root directory and add the following environment variables with your specific details:
 
-[Subscribe to TheNetNinja](https://www.youtube.com/@NetNinja)
+   ```
+   DB_URI=<your_mongodb_connection_string>
+   SECRET_KEY=<your_secret_key>
+   ADMIN_USERNAME=<your_admin_username>
+   ADMIN_PASSWORD=<your_admin_password>  **Note:** Do not store the actual password here. Use a secure method like environment variables and access them securely in your code.
+   ```
 
-[Subscribe to RaddyDev](https://www.youtube.com/@RaddyDev)
+5. **Start the application:**
 
+   ```bash
+   npm start
+   ```
 
-### Website
-[www.raddy.dev](https://www.raddy.dev)
+   This will start the server on port 3000 by default. You can access the application in your browser at `http://localhost:3000`.
 
-### Donations
-[Buy me a Coffee](https://www.buymeacoffee.com/RaddyTheBrand)
+### API Usage
+
+The application uses the following APIs for data visualization:
+
+* **API 1:** 
+* **API 2:** 
+* **API 3:** 
+
+### Design Decisions
+
+* EJS is used for templating to separate server-side logic from presentation.
+* Responsive design is implemented for optimal viewing across different devices.
+* User interface incorporates thoughtful design elements to enhance user experience.
+
+### Deployment
+
+For production deployment, consider using platforms like Heroku or AWS to host the application and configure environment variables securely.
+
+### Contributing
+
+**Note:** This project is intended for individual completion. 
+
+### License
+
+This project is licensed under the MIT License.
+
+### Author
+
+**Name:** [Your Name]
+**Group Number:** [Your Group Number]
+
+**Note:** Replace the bracketed information with your own details. Remember to remove the placeholder for the admin password and use a secure method to store it.
