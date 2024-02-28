@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <style>
+    .about-section {
+      text-align: center;
+    }
+
+    .about-section h2 {
+      margin-bottom: 10px;
+    }
+
+    .about-section img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%; /* Optional: Add rounded corners */
+    }
+  </style>
+</head>
+<body>
+  <h1>About Me</h1>
+
+  <section class="about-section">
+  </section>
+
+  <section class="quote-section">
+    <h2>Motivation random Quote</h2>
+    <blockquote id="quote"></blockquote>
+    <p id="author"></p>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const randomUserUrl = 'https://randomuser.me/api/';
+
+    async function getRandomUser() {
+      const response = await fetch(randomUserUrl);
+      const data = await response.json();
+      return data.results[0]; // Access the first user object from the response
+    }
+
+    async function getMotivationalQuote() {
+      const options = {
+        method: 'GET',
+        url: 'https://quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com/quote',
+        params: {
+          token: 'ipworld.info'
+        },
+        headers: {
+          'X-RapidAPI-Key': '35228d11acmsh2a7f8f43a3ce5d0p149cd8jsn730e0f92bdd4',
+          'X-RapidAPI-Host': 'quotes-inspirational-quotes-motivational-quotes.p.rapidapi.com'
+        }
+      };
+
+      try {
+        const response = await axios.request(options);
+        return response.data;
+      } catch (error) {
+        console.error(error);
+        return null;
+      }
+    }
+
+    getRandomUser().then(user => {
+      const aboutSection = document.querySelector('.about-section');
+
+      aboutSection.innerHTML = `
+        <h2>${user.name.title} ${user.name.first} ${user.name.last}</h2>
+        <p>Email: ${user.email}</p>
+        <p>Location: ${user.location.country}, ${user.location.city}</p>
+        <img src="${user.picture.large}" alt="${user.name.first} ${user.name.last}'s profile picture">
+      `;
+    }).catch(error => {
+      console.error('Error fetching user data:', error);
+      // Handle error gracefully, e.g., display an error message
+    });
+
+    getMotivationalQuote().then(quote => {
+      if (quote) {
+        const quoteElement = document.getElementById('quote');
+        const authorElement = document.getElementById('author');
+
+        quoteElement.textContent = `"${quote.text}"`;
+        authorElement.textContent = `- ${quote.author}`;
+      } else {
+        console.error('Failed to fetch motivational quote');
+        // Handle error gracefully, e.g., display an error message
+      }
+    });
+  </script>
+</body>
+</html>
