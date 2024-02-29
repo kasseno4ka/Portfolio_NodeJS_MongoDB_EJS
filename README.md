@@ -59,9 +59,9 @@ This project is a portfolio platform built using Node.js, Express, EJS, and Mong
 
 The application uses the following APIs for data visualization:
 
-* **API 1:** 
-* **API 2:** 
-* **API 3:** 
+* **API 1:** Unplash API
+* **API 2:** randomuser API
+* **API 3:** quotes-inspirational API
 
 ### Design Decisions
 
@@ -83,7 +83,7 @@ This project is licensed under the MIT License.
 
 ### Author
 
-**Name:** [Your Name]
-**Group Number:** [Your Group Number]
+**Name:** Kassen Ilyas
+**Group Number:** SE-2212
 
 **Note:** Replace the bracketed information with your own details. Remember to remove the placeholder for the admin password and use a secure method to store it.
